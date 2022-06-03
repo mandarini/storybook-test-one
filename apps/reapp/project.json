@@ -1,0 +1,80 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/reapp/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "compiler": "babel",
+        "outputPath": "dist/apps/reapp",
+        "index": "apps/reapp/src/index.html",
+        "baseHref": "/",
+        "main": "apps/reapp/src/main.tsx",
+        "polyfills": "apps/reapp/src/polyfills.ts",
+        "tsConfig": "apps/reapp/tsconfig.app.json",
+        "assets": ["apps/reapp/src/favicon.ico", "apps/reapp/src/assets"],
+        "styles": ["apps/reapp/src/styles.css"],
+        "scripts": [],
+        "webpackConfig": "@nrwl/react/plugins/webpack"
+      },
+      "configurations": {
+        "development": {
+          "extractLicenses": false,
+          "optimization": false,
+          "sourceMap": true,
+          "vendorChunk": true
+        },
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/reapp/src/environments/environment.ts",
+              "with": "apps/reapp/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/web:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "reapp:build",
+        "hmr": true
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "reapp:build:development"
+        },
+        "production": {
+          "buildTarget": "reapp:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/reapp/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/reapp"],
+      "options": {
+        "jestConfig": "apps/reapp/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

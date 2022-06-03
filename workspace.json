@@ -1,5 +1,12 @@
 {
   "$schema": "./node_modules/nx/schemas/workspace-schema.json",
   "version": 2,
-  "projects": {}
+  "projects": {
+    "ngapp": "apps/ngapp",
+    "ngapp-e2e": "apps/ngapp-e2e",
+    "nglib": "libs/nglib",
+    "reapp": "apps/reapp",
+    "reapp-e2e": "apps/reapp-e2e",
+    "relib": "libs/relib"
+  }
 }

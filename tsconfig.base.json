@@ -14,7 +14,10 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@reastor/nglib": ["libs/nglib/src/index.ts"],
+      "@reastor/relib": ["libs/relib/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
