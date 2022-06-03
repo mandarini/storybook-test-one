@@ -1,12 +1,15 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import styles from './app.module.css';
-import NxWelcome from './nx-welcome';
+export interface AppProps {
+  name: string;
+  age: number;
+  happy: boolean;
+}
 
-export function App() {
+export function App(props: AppProps) {
   return (
     <>
-      <NxWelcome title="reapp" />
-      <div />
+      <p>Name is {props.name}</p>
+      <p>Age is {props.age}</p>
+      <p>{props.happy ? 'happy' : 'sad'} </p>
     </>
   );
 }

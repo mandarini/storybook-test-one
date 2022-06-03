@@ -1,12 +1,15 @@
-import styles from './one.module.css';
-
-/* eslint-disable-next-line */
-export interface OneProps {}
+export interface OneProps {
+  name: string;
+  age: number;
+  happy: boolean;
+}
 
 export function One(props: OneProps) {
   return (
-    <div className={styles['container']}>
-      <h1>Welcome to One!</h1>
+    <div>
+      <p>Name is {props.name}</p>
+      <p>Age is {props.age}</p>
+      <p>{props.happy ? 'happy' : 'sad'} </p>
     </div>
   );
 }

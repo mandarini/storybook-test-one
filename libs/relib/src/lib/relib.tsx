@@ -1,12 +1,15 @@
-import styles from './relib.module.css';
-
-/* eslint-disable-next-line */
-export interface RelibProps {}
+export interface RelibProps {
+  name: string;
+  age: number;
+  happy: boolean;
+}
 
 export function Relib(props: RelibProps) {
   return (
-    <div className={styles['container']}>
-      <h1>Welcome to Relib!</h1>
+    <div>
+      <p>Name is {props.name}</p>
+      <p>Age is {props.age}</p>
+      <p>{props.happy ? 'happy' : 'sad'} </p>
     </div>
   );
 }
