@@ -5,8 +5,10 @@
     "ngapp": "apps/ngapp",
     "ngapp-e2e": "apps/ngapp-e2e",
     "nglib": "libs/nglib",
+    "nglib-e2e": "apps/nglib-e2e",
     "reapp": "apps/reapp",
     "reapp-e2e": "apps/reapp-e2e",
-    "relib": "libs/relib"
+    "relib": "libs/relib",
+    "relib-e2e": "apps/relib-e2e"
   }
 }
