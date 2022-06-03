@@ -25,25 +25,33 @@ export interface ITagProps extends ChipProps, ITagColorProps {
   showTooltip?: boolean;
 }
 
-export const Tag: React.FC<ITagProps> = (props) => {
+// export const Tag: React.FC<ITagProps> = (props) => {
+//   const { backgroundColor, textColor, className, label, showTooltip, ...rest } =
+//     props;
+//   const classes = useStyles({ textColor, backgroundColor });
+
+//   return (
+//     <Chip
+//       data-test="tag"
+//       color="primary"
+//       size="small"
+//       {...rest}
+//       label={showTooltip ? <span title={label as string}>{label}</span> : label}
+//       className={classnames(
+//         'rnd-tag',
+//         styles['tag'],
+//         classes.text,
+//         classes.background,
+//         className
+//       )}
+//     />
+//   );
+// };
+
+export function Tag(props: React.PropsWithChildren<ITagProps>) {
   const { backgroundColor, textColor, className, label, showTooltip, ...rest } =
     props;
   const classes = useStyles({ textColor, backgroundColor });
 
-  return (
-    <Chip
-      data-test="tag"
-      color="primary"
-      size="small"
-      {...rest}
-      label={showTooltip ? <span title={label as string}>{label}</span> : label}
-      className={classnames(
-        'rnd-tag',
-        styles['tag'],
-        classes.text,
-        classes.background,
-        className
-      )}
-    />
-  );
-};
+  return <button disabled={showTooltip}>{label}</button>;
+}
