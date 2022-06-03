@@ -1,14 +1,4 @@
-import Chip, { ChipProps } from '@material-ui/core/Chip';
-
-interface PropsWithClassName {
-  className?: string;
-}
-
-export interface ButtonProps extends PropsWithClassName {
-  disabled?: boolean;
-  primary?: boolean;
-  onClick?(event: React.MouseEvent): void;
-}
+import { ChipProps } from '@material-ui/core/Chip';
 
 export interface ITagColorProps {
   backgroundColor?: string;

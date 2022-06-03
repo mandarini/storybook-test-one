@@ -1,4 +1,3 @@
-import React from 'react';
 import classnames from 'classnames';
 import { makeStyles } from '@material-ui/core';
 import Chip, { ChipProps } from '@material-ui/core/Chip';
@@ -25,33 +24,25 @@ export interface ITagProps extends ChipProps, ITagColorProps {
   showTooltip?: boolean;
 }
 
-// export const Tag: React.FC<ITagProps> = (props) => {
-//   const { backgroundColor, textColor, className, label, showTooltip, ...rest } =
-//     props;
-//   const classes = useStyles({ textColor, backgroundColor });
-
-//   return (
-//     <Chip
-//       data-test="tag"
-//       color="primary"
-//       size="small"
-//       {...rest}
-//       label={showTooltip ? <span title={label as string}>{label}</span> : label}
-//       className={classnames(
-//         'rnd-tag',
-//         styles['tag'],
-//         classes.text,
-//         classes.background,
-//         className
-//       )}
-//     />
-//   );
-// };
-
-export function Tag(props: React.PropsWithChildren<ITagProps>) {
+export const Tag: React.FC<ITagProps> = (props) => {
   const { backgroundColor, textColor, className, label, showTooltip, ...rest } =
     props;
   const classes = useStyles({ textColor, backgroundColor });
 
-  return <button disabled={showTooltip}>{label}</button>;
-}
+  return (
+    <Chip
+      data-test="tag"
+      color="primary"
+      size="small"
+      {...rest}
+      label={showTooltip ? <span title={label as string}>{label}</span> : label}
+      className={classnames(
+        'rnd-tag',
+        styles['tag'],
+        classes.text,
+        classes.background,
+        className
+      )}
+    />
+  );
+};
